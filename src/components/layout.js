@@ -21,7 +21,8 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `
+  )
 
   return (
     <>
