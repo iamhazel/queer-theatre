@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import Menu from "./menu"
 import Header from "./header"
 import "./layout.css"
 
@@ -34,6 +34,7 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
+        <Menu />
         <main>{children}</main>
         <footer style={{
           marginTop: `2rem`

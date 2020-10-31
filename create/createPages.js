@@ -1,28 +1,29 @@
 const pageTemplate = require.resolve("../src/templates/page/index.js")
 
-const GET_PAGES = `
-  query GET_PAGES($first: Int, $after: String) {
-    wpgraphql {
-      pages(where: {parent: "null"}, first: $first, after: $after) {
-        nodes {
-          id
-          title
-          databaseId
-          content
-          uri
-        }
+const GET_PAGES =   query GET_PAGES {
+    allWpPage {
+      group(field: author___node___avatar___default, limit: 5) {
         pageInfo {
           hasNextPage
-          endCursor
+          hasPreviousPage
+        }
+        edges {
+          node {
+            title
+            uri
+            id
+            isFrontPage
+            databaseId
+          }
         }
       }
     }
   }
-`
+  `
 
 const allPages = []
 let pageNumber = 0
-const itemsPerPage = 10
+const itemsPerPage = 5
 
 /**
  * This is the export which Gatbsy will use to process.
@@ -55,12 +56,10 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
        * Extract the data from the GraphQL query results
        */
       const {
-        wpgraphql: {
-          pages: {
+          data: {
             nodes,
-            pageInfo: { hasNextPage, endCursor },
+            pageInfo: { hasNextPage, hasPreviousPage },
           },
-        },
       } = data
 
       /**
@@ -78,7 +77,7 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
       if (hasNextPage) {
         pageNumber++
         reporter.info(`fetch page ${pageNumber} of pages...`)
-        return fetchPages({ first: itemsPerPage, after: endCursor })
+        return fetchPages({ first: itemsPerPage, after: hasPreviousPage })
       }
 
       /**
