@@ -1,31 +1,23 @@
 const pageTemplate = require.resolve("../src/templates/page/index.js")
 
 const GET_PAGES = `
-    query GET_PAGES($first:Int $after:String) {
-        wpgraphql {
-            pages(
-                first: $first
-                after: $after
-                # This will make sure to only get the parent nodes and no children
-                where: {
-                    parent: null
-                }
-            ) {
-                pageInfo {
-                    hasNextPage
-                    endCursor
-                }
-                nodes {                
-                    id
-                    title
-                    pageId
-                    content
-                    uri
-                    isFrontPage
-                }
-            }
+  query GET_PAGES($first: Int, $after: String) {
+    wpgraphql {
+      pages(where: {parent: "null"}, first: $first, after: $after) {
+        nodes {
+          id
+          title
+          databaseId
+          content
+          uri
         }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
     }
+  }
 `
 
 const allPages = []

@@ -1,30 +1,23 @@
 const postTemplate = require.resolve("../src/templates/post/index.js")
 
 const GET_PAGES = `
-    query GET_POSTS($first:Int $after:String) {
-        wpgraphql {
-            posts(
-                first: $first
-                after: $after
-                # This will make sure to only get the parent nodes and no children
-                where: {
-                    parent: null
-                }
-            ) {
-                pageInfo {
-                    hasNextPage
-                    endCursor
-                }
-                nodes {                
-                    id
-                    title
-                    postId
-                    content
-                    uri
-                }
-            }
+  query GET_POSTS($first: Int, $after: String) {
+    wpgraphql {
+      posts(where: {parent: "null"}, first: $first, after: $after) {
+        nodes {
+          id
+          title
+          databaseId
+          content
+          uri
         }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
     }
+  }
 `
 
 
@@ -105,9 +98,9 @@ module.exports = async ({ actions, graphql, reporter }, options) => {
 
     wpPosts && wpPosts.map((post) => {
       /**
-       * Build post path based of theme blogURI setting.
+       * Build post path based of theme postURI setting.
        */
-      const path = `blog${post.uri}`
+      const path = `post${post.uri}`
 
       createPage({
         path: path,
