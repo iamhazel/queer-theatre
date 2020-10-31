@@ -35,8 +35,14 @@ module.exports = {
         // GraphQL endpoint, relative to your WordPress home URL.
         url: "https://cms.queertk.com/graphql",
         // GraphQL endpoint using env variable
-       // url: "${process.env.WORDPRESS_URL}/graphql",
+        // url: "${process.env.WORDPRESS_URL}/graphql",
       },
     },
+    {
+      resolve: "gatsby-source-wordpress-experimental",
+      options: {
+        url: "https://cms.queertk.com/graphql",
+      }
+    },
   ],
-}
+};
