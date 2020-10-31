@@ -31,7 +31,7 @@ module.exports = {
       resolve: "gatsby-source-graphql",
       options: {
         typeName: "WPGraphQL",
-        fieldName: "wpcontent",
+        fieldName: "wpgraphql",
         // GraphQL endpoint, relative to your WordPress home URL.
         url: "https://cms.queertk.com/graphql",
         // GraphQL endpoint using env variable
