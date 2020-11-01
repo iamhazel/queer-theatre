@@ -1,9 +1,6 @@
-// src/utils/index.js
-/** Parses a menu item object and returns Gatsby-field URI.
- * @param {object} menuItem a single menu item
- * @param wordPressUrl
- * @param listingURI */
-export const CreateLocalLink = (menuItem, wordPressUrl, listingURI='listing/') => {
+import { listingURI } from "../../globals";
+
+export const CreateLocalLink = (menuItem, wordPressUrl) => {
   const { url, connectedObject } = menuItem;
 
   if (url === '#') {
@@ -13,8 +10,8 @@ export const CreateLocalLink = (menuItem, wordPressUrl, listingURI='listing/') =
   let newUri = url.replace(wordPressUrl, '');
 
   /** If it's a listing link, respect the users listingURI setting */
-  if (connectedObject && connectedObject.__typename === 'WPGraphQL_Post') {
-    newUri = listingURI + newUri;
+  if (connectedObject && connectedObject.__typename === 'wpPost') {
+    newUri = {listingURI} + newUri;
   }
 
   return newUri;

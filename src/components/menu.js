@@ -13,21 +13,16 @@ const MENU_QUERY = graphql`
     target
   }
 
-  query GetMainMenu {
-    allWpMenu {
-      nodes {
-        menuItems {
-          nodes {
-            url
-          }
-        }
+  query GetMenuLinks {
+    wp {
+      generalSettings {
+        url
       }
     }
-    allWp {
+    allWpMenuItem(filter: {locations: {eq: PRIMARY}}) {
       nodes {
-        generalSettings {
-          url
-        }
+        url
+        label
       }
     }
   }
@@ -38,9 +33,10 @@ const Menu = () => {
     <StaticQuery
       query={MENU_QUERY}
       render={(data) => {
-        if (data.allWpMenu) {
-          const menuItems = data.allWpMenu.nodes
-          const wordPressUrl = data.allWp.generalSettings.url
+
+        if (data.allWpMenuItem) {
+          const menuItems = data.allWpMenuItem.nodes.nodes
+          const wordPressUrl = data.wp.generalSettings.url
 
        return (
          <div style={{ marginBottom: "20px" }}>

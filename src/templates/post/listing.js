@@ -1,9 +1,9 @@
 // src/templates/post/listing.js
 import React from "react"
 import Layout from "../../components/layout"
+import SEO from "../../components/seo"
 import PostEntry from "../../components/post-entry"
 import Pagination from "../../components/pagination"
-import SEO from "../../components/SEO"
 
 const Listing = ({ pageContext }) => {
   const { nodes, pageNumber, hasNextPage, itemsPerPage, allPosts }
@@ -16,8 +16,10 @@ const Listing = ({ pageContext }) => {
         description="Listing of all published articles and posts"
         keywords={[`blog`, 'listing', 'posts']}
       />
+      
       {nodes && nodes.map(post => <PostEntry key={post.postId}
         post={post}/>)}
+
       <Pagination
         pageNumber={pageNumber}
         hasNextPage={hasNextPage}

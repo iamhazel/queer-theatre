@@ -1,5 +1,5 @@
 // global variable
 const Globals = {
-  listingURI: 'listing'
+  listingURI: 'post'
 }
 module.exports = Globals

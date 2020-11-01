@@ -9,8 +9,8 @@ const PostEntry = ({ post }) => {
   return (
     <div style={{ marginBottom: "30px" }}>
       <header>
-        <Link to={`${listingURI}/${uri}/`}>
-          <h2 style={{ marginBottom: "5px" }}>{title}</h2>
+        <Link to={`${listingURI}${uri}`}>
+          <span style={{ marginBottom: "5px", fontSize:"1.3rem" }}>{title}</span>
           <Image image={featuredImage} style={{ margin: 0 }}/>
         </Link>
       </header>

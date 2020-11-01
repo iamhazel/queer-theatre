@@ -2,12 +2,14 @@
 const PostTemplateFragment = `
   fragment PostTemplateFragment on WpPost {
     id
-    postId
+    databaseId
     title
     content
     link
     featuredImage {
-      sourceUrl
+      node {
+        sourceUrl
+      }
     }
     categories {
       nodes {
@@ -24,8 +26,10 @@ const PostTemplateFragment = `
       }
     }
     author {
-      name
-      slug
+      node {
+        name
+        slug
+      }
     }
   }
 `
@@ -33,7 +37,7 @@ const PostTemplateFragment = `
 const ListingPreviewFragment = `
   fragment ListingPreviewFragment on WpPost {
     id
-    postId
+    databaseId
     title
     uri
     date
@@ -41,11 +45,15 @@ const ListingPreviewFragment = `
     excerpt
     content
     featuredImage {
-      sourceUrl
+      node {
+        sourceUrl
+      }
     }
     author {
-      name
-      slug
+      node {
+        name,
+        slug,
+      }
     }
   }
 `
