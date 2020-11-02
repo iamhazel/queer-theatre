@@ -27,22 +27,14 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-//    {
-//      resolve: "gatsby-source-graphql",
-//      options: {
-//        typeName: "WPGraphQL",
-//        fieldName: "wpgraphql",
-//        // GraphQL endpoint, relative to your WordPress home URL.
-//        url: "https://cms.queertk.com/graphql",
-//        // GraphQL endpoint using env variable
-//        // url: "${process.env.WORDPRESS_URL}/graphql",
-//      },
-//    },
     {
       resolve: "gatsby-source-wordpress-experimental",
       options: {
         url: "https://cms.queertk.com/graphql",
       }
+    },
+    {
+      resolve: "gatsby-plugin-styled-components",
     },
   ],
 };

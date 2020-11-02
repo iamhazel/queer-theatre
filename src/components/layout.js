@@ -1,52 +1,56 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
-import React from "react"
+import React, { Fragment } from "react"
+import { Helmet } from "react-helmet"
+import styled from "styled-components"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import Menu from "./menu"
-import Header from "./header"
-import "./layout.css"
+import { StaticQuery, graphql } from "gatsby"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+import GlobalStyle from "../styles/GlobalStyle"
+
+// Create a Wrapper component that'll render a <section> tag with some styles
+const Wrapper = styled.section`
+    background: papayawhip;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: rgb(245, 245, 245);
+`
+
+const Layout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
         }
       }
-    }
-  `
-  )
-
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <Menu />
-        <main>{children}</main>
-        <footer style={{
-          marginTop: `2rem`
-        }}>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
-}
+    `}
+    
+    return={(data) => (
+      <Fragment>
+        <Helmet>
+          <title>{ data.site.siteMetaData.Query }</title>
+          <meta
+            name="description"
+            content="Gatsby example site using Styled Components"
+          />
+          <meta name="referrer" content="origin" />
+        </Helmet>
+        <GlobalStyle />
+        <Wrapper>
+          { children }
+        </Wrapper>
+      </Fragment>
+    )}
+  />
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
