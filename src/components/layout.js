@@ -2,9 +2,10 @@ import React, { Fragment } from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
 
 import GlobalStyle from "../styles/GlobalStyle"
+
+import Navbar from "./navbar/nav"
 
 // Create a Wrapper component that'll render a <section> tag with some styles
 const Wrapper = styled.section`
@@ -21,39 +22,58 @@ const Wrapper = styled.section`
     background-color: rgb(245, 245, 245);
 `
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    
-    return={(data) => (
-      <Fragment>
-        <Helmet>
-          <title>{ data.site.siteMetaData.Query }</title>
-          <meta
-            name="description"
-            content="Gatsby example site using Styled Components"
-          />
-          <meta name="referrer" content="origin" />
-        </Helmet>
-        <GlobalStyle />
-        <Wrapper>
-          { children }
-        </Wrapper>
-      </Fragment>
-    )}
-  />
-);
+// const Layout = ({ children }) => (
+//   <StaticQuery
+//     query={graphql`
+//       query SiteTitleQuery {
+//         site {
+//           siteMetadata {
+//             title
+//           }
+//         }
+//       }
+//     `}
+//     
+//     return={(data) => (
+//       <Fragment>
+//         <Helmet>
+//           <title>{ data.site.siteMetaData.Query }</title>
+//           <meta
+//             name="description"
+//             content="Gatsby example site using Styled Components"
+//           />
+//           <meta name="referrer" content="origin" />
+//         </Helmet>
+//         <GlobalStyle />
+//         <Wrapper>
+//           { children }
+//         </Wrapper>
+//       </Fragment>
+//     )}
+//   />
+// );
+
+export default function Layout({ children }) {
+    return (
+        <Fragment>
+            <Helmet>
+                <title>QTK</title>
+                <meta
+                    name="description"
+                    content="Gatsby example site using Styled Components"
+                />
+                <meta name="referrer" content="origin" />
+            </Helmet>
+            <Navbar />
+            <GlobalStyle />
+            <Wrapper>
+                {children}
+            </Wrapper>
+        </Fragment>
+    );
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout

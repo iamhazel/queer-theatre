@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import GlobalStyle from "../styles/GlobalStyle"
@@ -31,9 +31,7 @@ const Wrapper = styled.section`
     background-color: rgb(245, 245, 245);
 `
 
-class IndexPage extends Component {
-    render() {
-        return (
+const IndexPage = () => (
             <>
                 <Helmet>
                     <title>Gatsby Styled Components</title>
@@ -54,7 +52,5 @@ class IndexPage extends Component {
                 </Wrapper>
             </>
         )
-    }
-}
 
 export default IndexPage
