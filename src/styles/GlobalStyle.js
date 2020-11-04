@@ -1,13 +1,25 @@
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --primary: #D32C4D;
+    --secondary: #2C94A2;
+    --tertiary: #E7B547;
+
+    --primary-alt: #A63148;
+    --secondary-alt: #2C6E6B;
+    --tertiary-alt: #CCAE6D;
+  }
   *, *::before, *::after {
     box-sizing: border-box;
   }
   html {
     margin: 0;  
-    background-color: #fafaf3;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d2d0b3' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-color: #ebe8e2;
+    background-image: url("https://www.transparenttextures.com/patterns/grid-me.png");
+    background-repeat: repeat;
+    opacity: 100%;
+    }
   }
 `
 

@@ -7,6 +7,15 @@ var plugins = [{
     },{
       plugin: require('/home/hazel/gatsby/queer-theatre/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
       options: {"plugins":[]},
+    },{
+      plugin: require('/home/hazel/gatsby/queer-theatre/node_modules/gatsby-plugin-typography/gatsby-ssr'),
+      options: {"plugins":[],"pathToConfigModule":"src/utils/typography"},
+    },{
+      plugin: require('/home/hazel/gatsby/queer-theatre/node_modules/gatsby-plugin-google-fonts/gatsby-ssr'),
+      options: {"plugins":[],"fonts":["Fira Sans","Fira Sans Condensed","source sans pro:300,400,400i,700"],"display":"swap"},
+    },{
+      plugin: require('/home/hazel/gatsby/queer-theatre/node_modules/gatsby-plugin-prefetch-google-fonts/gatsby-ssr'),
+      options: {"plugins":[],"fonts":[{"family":"Fira Sans","variants":["400","700"]},{"family":"Fira Sans Condensed"}]},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [

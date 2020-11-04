@@ -36,5 +36,36 @@ module.exports = {
     {
       resolve: "gatsby-plugin-styled-components",
     },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Fira Sans`,
+          `Fira Sans Condensed`,
+          `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+        ],
+        display: 'swap'
+      }
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Fira Sans`,
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Fira Sans Condensed`,
+          },
+        ],
+      },
+    },
   ],
 };

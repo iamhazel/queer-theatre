@@ -4,12 +4,16 @@ import styled from "styled-components"
 
 const NavItem = styled(Link)`
   text-decoration: none;
-  color: #111;
+  color: white;
   display: inline-block;
   white-space: nowrap;
   margin: 0 1vw;
   transition: all 200ms ease-in;
   position: relative;
+
+  :visited {
+    color: white;
+  }
 
   :after {
     position: absolute;
@@ -19,13 +23,12 @@ const NavItem = styled(Link)`
     width: 0%;
     content: ".";
     color: transparent;
-    background: goldenrod;
-    height: 1px;
-    transition: all 0.4s ease-in;
+    background: white;
+    height: 2px;
+    transition: all 0.25s ease-in;
   }
 
   :hover {
-    color: goldenrod;
     ::after {
       width: 100%;
     }

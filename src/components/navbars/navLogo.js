@@ -15,7 +15,7 @@ const LogoWrap = styled.div`
 const NavLogo = () => {
     const data = useStaticQuery(graphql`
     query {
-      file(name: { eq: "gatsby-icon" }, extension: { eq: "png" }) {
+      file(name: { eq: "logo-white" }, extension: { eq: "png" }) {
         childImageSharp {
           fluid(maxWidth: 50, pngQuality: 80) {
             ...GatsbyImageSharpFluid

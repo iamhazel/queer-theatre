@@ -4,14 +4,14 @@ import NavLogo from "./navLogo";
 import styled from "styled-components";
 
 const Navigation = styled.nav`
-  height: 10vh;
+  height: 6vh;
   display: flex;
-  background-color: #fff;
+  background-color: var(--primary);
+  border-radius: 0.4rem;
   position: relative;
   justify-content: space-between;
-  text-transform: uppercase;
   border-bottom: 2px solid #33333320;
-  margin: 0 auto;
+  margin: 0.25rem;
   padding: 0 5vw;
   z-index: 2;
   align-self: center;
@@ -30,7 +30,6 @@ const Toggle = styled.div`
   display: none;
   height: 100%;
   cursor: pointer;
-  padding: 0 10vw;
 
   @media (max-width: 768px) {
     display: flex;
@@ -57,7 +56,7 @@ const Navbox = styled.div`
 `
 
 const Hamburger = styled.div`
-  background-color: #111;
+  background-color: #FFF;
   width: 30px;
   height: 3px;
   transition: all .3s linear;
@@ -69,7 +68,7 @@ const Hamburger = styled.div`
   ::after {
     width: 30px;
     height: 3px;
-    background-color: #111;
+    background-color: #FFF;
     content: "";
     position: absolute;
     transition: all 0.3s linear;

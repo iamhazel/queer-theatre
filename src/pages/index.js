@@ -2,6 +2,9 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import GlobalStyle from "../styles/GlobalStyle"
+import Layout from "../components/layout"
+import Wrapper from "../components/wrapper"
+import Button from "../components/button"
 
 // Create a Title component that'll render an <h1> tag with some styles
 const Title = styled.h1`
@@ -16,23 +19,8 @@ const ExternalLink = styled.a`
   color: #1e88e5;
 `
 
-// Create a Wrapper component that'll render a <section> tag with some styles
-const Wrapper = styled.section`
-    background: papayawhip;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: rgb(245, 245, 245);
-`
-
 const IndexPage = () => (
-            <>
+            <Layout>
                 <Helmet>
                     <title>Gatsby Styled Components</title>
                     <meta
@@ -44,13 +32,21 @@ const IndexPage = () => (
                 <GlobalStyle />
                 <Wrapper>
                     <Title>Hello World, this is my first styled component!</Title>
+                    <Button>Normal Button</Button>
+                    <Button primary>Primary Button</Button>
+                    <Button primaryOutline>Primary Outline</Button>
+                    <Button secondary>Secondary Button</Button>
+                    <Button secondaryOutline>Secondary Outline</Button>
+                    <Button tertiary>Tertiary Button</Button>
+                    <Button tertiaryOutline>Tertiary Outline</Button>
+                    <Button disabled>Disabled Button</Button>
                     <p>
                         <ExternalLink href="https://www.gatsbyjs.com/plugins/gatsby-plugin-styled-components/">
                             gatsby-plugin-styled-component docs
             </ExternalLink>
                     </p>
                 </Wrapper>
-            </>
+            </Layout>
         )
 
 export default IndexPage
