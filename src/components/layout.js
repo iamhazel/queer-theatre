@@ -5,35 +5,77 @@ import GlobalStyle from "../styles/GlobalStyle"
 import Navbar from "./navbars/nav"
 import styled, { css } from "styled-components"
 
+const Container = styled.div`
+    display: grid;
+    height: 100vh;
+    max-width: 1170px;
+    margin: 0.5rem auto;
+    padding: 1rem;
+
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 2.3fr 0.8fr 0.4fr;
+    grid-template-areas:
+        "Header Header Header Header"
+        "Sidebar Content Content Content"
+        "Sidebar Content Content Content"
+        "Sidebar Footer Footer Footer";
+    grid-gap: 0.5rem;
+
+    @media only screen and (max-width: 550px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+        grid-template-areas:
+            "Header"
+            "Sidebar"
+            "Content"
+            "Content1"
+            "Content2"
+            "Content3"
+            "Footer";
+    }
+`
 
 const Header = styled.header`
-    background: lightyellow;
-    padding: 1rem 2rem;
-`
-
-const Sidebar = styled.nav`
-    background: lightblue;
-    padding: 1rem 2rem;
-`
-
-const Content = styled.section`
     background: lightgreen;
-    padding: 1rem 2rem;
+    padding: var(--padding-main);
+    border-radius: var(--radius-main);
+    grid-area: Header;
+`
+
+const Content = styled.div`
+    background: lightyellow;
+    padding: var(--padding-main);
+    border-radius: var(--radius-main);
+    grid-area: Content;
+`
+
+const Sidebar = styled.div`
+    background: lightblue;
+    padding: var(--padding-main);
+    border-radius: var(--radius-main);
+    grid-area: Sidebar;
 `
 
 const Footer = styled.footer`
     background: orange;
-    padding: 1rem 2rem;
+    padding: var(--padding-main);
+    border-radius: var(--radius-main);
+    grid-area: Footer;
 `
 
-export default function Layout({ children }) {
+export default function Layout(props, { children }) {
     return (
-        <>
-            <Header>header</Header>
-            <Sidebar>sidenav</Sidebar>
-            <Content>content</Content>
-            <Footer>footer</Footer>
-        </>
+        <Container>
+            <GlobalStyle />
+            <Header>{props.header}</Header> 
+            <Content>{props.content}</Content>
+            <Sidebar>{props.sidebar}</Sidebar>
+            <Footer>{props.footer}</Footer>
+        </Container>
     )
 }
 
