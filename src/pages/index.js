@@ -5,6 +5,7 @@ import GlobalStyle from "../styles/GlobalStyle"
 import Layout from "../components/layout"
 import Wrapper from "../components/wrapper"
 import Button from "../components/button"
+import Hero from "../components/hero"
 
 // Create a Title component that'll render an <h1> tag with some styles
 const Title = styled.h1`
@@ -30,9 +31,9 @@ const IndexPage = () => (
                     <meta name="referrer" content="origin" />
                 </Helmet>
                 <GlobalStyle />
+                <Hero />
                 <Wrapper>
                     <Title>Hello World, this is my first styled component!</Title>
-                    <Button>Normal Button</Button>
                     <Button primary>Primary Button</Button>
                     <Button primaryOutline>Primary Outline</Button>
                     <Button secondary>Secondary Button</Button>

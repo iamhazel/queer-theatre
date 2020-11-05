@@ -9,6 +9,8 @@ const GlobalStyle = createGlobalStyle`
     --primary-alt: #A63148;
     --secondary-alt: #2C6E6B;
     --tertiary-alt: #CCAE6D;
+
+    --shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
   }
   *, *::before, *::after {
     box-sizing: border-box;

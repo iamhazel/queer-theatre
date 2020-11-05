@@ -5,8 +5,9 @@ const Wrapper = styled.section`
     max-width: 90%;
     border-radius: 0.4rem;
     margin: 1rem auto;
-    padding: 0.25rem 0;
+    padding: 0.5rem 1rem;
     background-color: #f2f2f2;
+    box-shadow: var(--shadow);
 `
 
 export default Wrapper
