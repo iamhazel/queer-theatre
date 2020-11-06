@@ -7,6 +7,7 @@ import Wrapper from "../components/wrapper"
 import Button from "../components/button"
 import Hero from "../components/hero"
 import Navbar from "../components/navbars/nav"
+import ComingUp from "../components/comingUp"
 
 // // Create a Title component that'll render an <h1> tag with some styles
 // const Title = styled.h1`
@@ -22,7 +23,11 @@ import Navbar from "../components/navbars/nav"
 // `
 
 const IndexPage = () => (
-            <Layout header="{<Navbar />}">
+            <Layout 
+                header={<Navbar />}
+                sidebar={<ComingUp />}
+                footer="Footer"
+                >
                 <Helmet>
                     <title>QueerTK</title>
                     <meta

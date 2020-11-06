@@ -1,13 +1,17 @@
-import React from "react";
-import { graphql } from "gatsby";
-import PropTypes from "prop-types";
-
-import Layout from "../../components/layout";
+import React from "react"
+import { graphql } from "gatsby"
+import PropTypes from "prop-types"
+import Navbar from "../../components/navbars/nav"
+import ComingUp from "../../components/comingUp"
+import Layout from "../../components/layout"
 
 export default function SingleProduction({ data }) {
   const post = data.wpPost
   return (
-      <Layout>
+      <Layout
+        header={<Navbar />}
+        sidebar={<ComingUp />}
+        >
         <section>
           <h3>{post.production.details.name}</h3>
           <p>Directed by {post.production.details.author}</p>

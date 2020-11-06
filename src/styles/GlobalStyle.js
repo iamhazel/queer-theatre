@@ -13,14 +13,15 @@ const GlobalStyle = createGlobalStyle`
     --shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
 
     --margin-main: 1rem 2rem;
-    --padding-main: 1rem 2rem;
-    --radius-main: 0.1rem;
+    --padding-main: 0.75rem 0.75rem;
+    --radius-main: 0.2rem;
   }
   *, *::before, *::after {
     box-sizing: border-box;
   }
   html {
-    margin: 0;  
+    margin: 0;
+    font-family: Fira Sans;
     }
   }
 `

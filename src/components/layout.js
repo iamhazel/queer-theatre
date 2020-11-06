@@ -10,7 +10,7 @@ const Container = styled.div`
     height: 100vh;
     max-width: 1170px;
     margin: 0.5rem auto;
-    padding: 1rem;
+    padding: 0 1rem;
 
     font-weight: 800;
     text-transform: uppercase;
@@ -22,26 +22,22 @@ const Container = styled.div`
         "Header Header Header Header"
         "Sidebar Content Content Content"
         "Sidebar Content Content Content"
-        "Sidebar Footer Footer Footer";
-    grid-gap: 0.5rem;
+        "Footer Footer Footer Footer";
+    grid-gap: 1rem;
 
-    @media only screen and (max-width: 550px) {
+    @media only screen and (max-width: 768px) {
         grid-template-columns: 1fr;
         grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
         grid-template-areas:
             "Header"
             "Sidebar"
             "Content"
-            "Content1"
-            "Content2"
-            "Content3"
             "Footer";
     }
 `
 
 const Header = styled.header`
-    background: lightgreen;
-    padding: var(--padding-main);
+    background: transparent;
     border-radius: var(--radius-main);
     grid-area: Header;
 `
@@ -54,8 +50,6 @@ const Content = styled.div`
 `
 
 const Sidebar = styled.div`
-    background: lightblue;
-    padding: var(--padding-main);
     border-radius: var(--radius-main);
     grid-area: Sidebar;
 `
@@ -72,7 +66,7 @@ export default function Layout(props, { children }) {
         <Container>
             <GlobalStyle />
             <Header>{props.header}</Header> 
-            <Content>{props.content}</Content>
+            <Content>{children}</Content>
             <Sidebar>{props.sidebar}</Sidebar>
             <Footer>{props.footer}</Footer>
         </Container>

@@ -7,12 +7,11 @@ const Navigation = styled.nav`
   height: 6vh;
   display: flex;
   background-color: var(--primary);
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   position: relative;
   justify-content: space-between;
   border-bottom: 2px solid #33333320;
-  margin: 0.25rem;
-  padding: 0 5vw;
+  padding: 0 2vw;
   z-index: 2;
   align-self: center;
 
@@ -32,6 +31,7 @@ const Toggle = styled.div`
   cursor: pointer;
 
   @media (max-width: 768px) {
+    padding: 0 2vw;
     display: flex;
   }
 `
@@ -112,4 +112,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar
